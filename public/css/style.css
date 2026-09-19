@@ -1,0 +1,36 @@
+:root {
+    --ink: #233044;
+    --muted: #687386;
+    --blue: #2563eb;
+    --pale: #eef4ff;
+    --line: #dfe5ee;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: #f7f9fc; font-family: Arial, sans-serif; line-height: 1.6; }
+.container { width: min(100% - 2rem, 960px); margin: 0 auto; }
+.site-header { background: var(--white); border-bottom: 1px solid var(--line); }
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 1rem; }
+.brand { color: var(--ink); font-size: 1.2rem; font-weight: bold; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover, nav a:focus { color: var(--blue); }
+main { min-height: calc(100vh - 132px); padding: 4rem 0; }
+.hero, .page-heading { max-width: 700px; }
+.hero { padding: 3rem; background: var(--pale); border-left: 5px solid var(--blue); }
+h1 { margin: .25rem 0 1rem; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; }
+h2 { margin-top: 0; }
+.eyebrow { color: var(--blue); font-size: .8rem; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; }
+.hero p:not(.eyebrow), .page-heading p:not(.eyebrow) { color: var(--muted); font-size: 1.1rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.button { display: inline-block; padding: .7rem 1rem; color: var(--white); background: var(--blue); text-decoration: none; border-radius: 5px; }
+.button.secondary { color: var(--blue); background: var(--white); border: 1px solid var(--blue); }
+.info-box { max-width: 700px; margin-top: 2rem; padding: 1.5rem; background: var(--white); border: 1px solid var(--line); }
+.table-wrap { margin-top: 2rem; overflow-x: auto; background: var(--white); border: 1px solid var(--line); }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { padding: 1rem; border-bottom: 1px solid var(--line); }
+th { background: var(--pale); font-size: .85rem; }
+tr:last-child td { border-bottom: 0; }
+.site-footer { padding: 1.5rem 0; color: var(--muted); background: var(--white); border-top: 1px solid var(--line); font-size: .9rem; }
+@media (max-width: 600px) { .nav-wrap { align-items: flex-start; flex-direction: column; padding: 1rem 0; } nav { gap: .7rem; } .hero { padding: 2rem 1.25rem; } }
