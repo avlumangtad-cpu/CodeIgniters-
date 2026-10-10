@@ -3,7 +3,7 @@
 <section class="page-heading">
     <p class="eyebrow">Accounts</p>
     <h1>Customer Accounts</h1>
-    <p>Current customer records from the temporary sample list.</p>
+    <p>Current customer records from the database.</p>
 </section>
 
 <div class="table-wrap">
@@ -14,7 +14,7 @@
         <tbody>
         <?php foreach ($customers as $customer): ?>
             <tr>
-                <td><?= esc($customer['name']) ?></td>
+                <td><?= esc($customer['full_name']) ?></td>
                 <td><?= esc($customer['email']) ?></td>
                 <td><?= esc($customer['phone']) ?></td>
             </tr>

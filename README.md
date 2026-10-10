@@ -1,69 +1,129 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter POS System
 
-## What is CodeIgniter?
+## IT0049 — Technical Formative Assessment 2
+**From Arrays to a Real Database**
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+### Project Description
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+This project is a Point-of-Sale (POS) web application developed using CodeIgniter 4, PHP, and MySQL.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+The application was initially developed using static PHP arrays during TFA1. For TFA2, the Customer Accounts and User Accounts pages were upgraded to retrieve records from a MySQL database using CodeIgniter Models and Query Builder methods.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+### Technologies Used
 
-## Installation & updates
+- PHP
+- CodeIgniter 4
+- MySQL
+- XAMPP
+- phpMyAdmin
+- HTML and CSS
+- Git and GitHub
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### Application Features
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- Home page
+- About page
+- Customer Accounts page
+- User Accounts page
+- Database-backed customer records
+- Database-backed user records
+- Data retrieval using CodeIgniter Models and `findAll()`
 
-## Setup
+### Database Structure
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+**Database Name:** `codeigniter_pos`
 
-## Important Change with index.php
+**Customers Table**
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+| Column | Data Type |
+|---|---|
+| id | INT, Primary Key, Auto Increment |
+| full_name | VARCHAR(100), NOT NULL |
+| email | VARCHAR(100), NOT NULL |
+| phone | VARCHAR(20) |
+| created_at | DATETIME, NOT NULL |
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+**Users Table**
 
-**Please** read the user guide for a better explanation of how CI4 works!
+| Column | Data Type |
+|---|---|
+| id | INT, Primary Key, Auto Increment |
+| username | VARCHAR(50), NOT NULL, UNIQUE |
+| full_name | VARCHAR(100), NOT NULL |
+| created_at | DATETIME, NOT NULL |
 
-## Repository Management
+Each table contains five sample records.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+### Installation and Setup
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+1. Install XAMPP, Composer, and PHP dependencies.
+2. Clone or download this repository.
+3. Place the project inside the XAMPP `htdocs` directory.
+4. Start Apache and MySQL from XAMPP.
+5. Open phpMyAdmin at `http://localhost/phpmyadmin/`.
+6. Create a database named `codeigniter_pos`.
+7. Import `database_export/codeigniter_pos.sql`.
+8. Open the project in Visual Studio Code.
+9. Run `composer install` in the project directory.
+10. Copy `env` to `.env` if a local `.env` file does not already exist.
+11. Configure the `.env` file with the appropriate local database credentials.
 
-## Server Requirements
+Example local configuration:
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+```ini
+CI_ENVIRONMENT = development
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+app.baseURL = 'http://localhost/CodeIgniters-/public/'
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+database.default.hostname = localhost
+database.default.database = codeigniter_pos
+database.default.username = root
+database.default.password =
+database.default.DBDriver = MySQLi
+database.default.port = 3306
+```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+The example assumes the default XAMPP MySQL configuration with no root password.
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+### Running the Application
+
+Start Apache and MySQL, then open:
+
+**Home Page:**  
+http://localhost/CodeIgniters-/public/
+
+**Customer Accounts:**  
+http://localhost/CodeIgniters-/public/customers
+
+**User Accounts:**  
+http://localhost/CodeIgniters-/public/users
+
+### CodeIgniter MVC Structure
+
+**Models**
+- `app/Models/CustomerModel.php`
+- `app/Models/UserModel.php`
+
+**Controllers**
+- `app/Controllers/Customers.php`
+- `app/Controllers/Users.php`
+
+**Views**
+- `app/Views/customers/index.php`
+- `app/Views/users/index.php`
+
+The Models retrieve records from the database using `findAll()`. The Controllers pass these records to their respective Views, which display them in HTML tables.
+
+### Database Export
+
+The SQL database export is included at:
+
+`database_export/codeigniter_pos.sql`
+
+This file contains the database tables and sample records required to reproduce the application.
+
+### Notes
+
+This project was developed for IT0049 — Web System Technologies as part of Technical Formative Assessment 2.
+
+The application demonstrates the transition from static PHP arrays to database-backed data retrieval using CodeIgniter 4 and MySQL.
