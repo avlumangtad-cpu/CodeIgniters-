@@ -127,3 +127,20 @@ This file contains the database tables and sample records required to reproduce 
 This project was developed for IT0049 — Web System Technologies as part of Technical Formative Assessment 2.
 
 The application demonstrates the transition from static PHP arrays to database-backed data retrieval using CodeIgniter 4 and MySQL.
+
+#-------------------------
+# TFA3 - Uploaded Avatars
+#-------------------------
+/public/uploads/avatars/*
+!/public/uploads/avatars/.gitkeep
+
+#-------------------------
+# Local and Hosting Backup Files
+#-------------------------
+.htaccess.local-back.txt
+hosting-htaccess.txt
+
+#-------------------------
+# Temporary Security Test Files
+#-------------------------
+/security-test/

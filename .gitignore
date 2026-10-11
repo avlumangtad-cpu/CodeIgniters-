@@ -124,3 +124,14 @@ _modules/*
 
 /results/
 /phpunit.xml
+
+# TFA3 - Uploaded Avatars
+/public/uploads/avatars/*
+!/public/uploads/avatars/.gitkeep
+
+# Local and Hosting Backup Files
+.htaccess.local-back.txt
+hosting-htaccess.txt
+
+# Temporary Security Test Files
+/security-test/

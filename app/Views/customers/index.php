@@ -6,6 +6,10 @@
     <p>Current customer records from the database.</p>
 </section>
 
+<a href="<?= site_url('customers/new') ?>" class="btn">
+    + New Customer
+</a>
+
 <div class="table-wrap">
     <table>
         <thead>
